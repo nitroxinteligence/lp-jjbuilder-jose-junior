@@ -91,10 +91,11 @@ a:focus-visible {
 .hero {
   min-height: 100vh;
   padding: 72px 5% 100px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 560px) minmax(0, 680px);
+  justify-content: center;
   align-items: center;
-  gap: clamp(48px, 6vw, 76px);
+  gap: clamp(40px, 5vw, 76px);
   position: relative;
   overflow: hidden;
   background: var(--black);
@@ -103,8 +104,9 @@ a:focus-visible {
 .hero-content {
   position: relative;
   z-index: 2;
-  width: min(100%, 760px);
-  align-self: center;
+  width: 100%;
+  max-width: 560px;
+  justify-self: end;
 }
 
 .hero h1 {
@@ -273,8 +275,10 @@ a:focus-visible {
 .hero-photo {
   position: relative;
   z-index: 2;
-  width: min(100%, 760px);
+  width: 100%;
+  max-width: 680px;
   height: clamp(610px, 72vh, 730px);
+  justify-self: start;
   isolation: isolate;
   overflow: hidden;
   border: 1px solid #2b2b2b;
@@ -1163,9 +1167,17 @@ footer {
   }
 
   .hero {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     padding-top: 48px;
     gap: 48px;
+  }
+
+  .hero-content {
+    width: min(100%, 760px);
+    max-width: none;
+    align-self: center;
   }
 
   .hero-sub {
