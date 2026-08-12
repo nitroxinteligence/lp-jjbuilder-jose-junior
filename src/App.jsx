@@ -21,47 +21,47 @@ import {
 
 const galleryImages = [
   {
-    src: '/jose-junior-gallery/01-palestra-igreja.jpeg',
+    src: '/jose-junior-gallery/01-palestra-igreja.webp',
     alt: 'José Junior palestrando com os braços abertos em uma igreja',
   },
   {
-    src: '/jose-junior-gallery/02-corrida-praia.jpeg',
+    src: '/jose-junior-gallery/02-corrida-praia.webp',
     alt: 'José Junior correndo à beira-mar',
   },
   {
-    src: '/jose-junior-gallery/03-veneza-canal.jpeg',
+    src: '/jose-junior-gallery/03-veneza-canal.webp',
     alt: 'José Junior em Veneza próximo a um canal',
   },
   {
-    src: '/jose-junior-gallery/04-familia-natal.jpeg',
+    src: '/jose-junior-gallery/04-familia-natal.webp',
     alt: 'José Junior com sua família em uma celebração de Natal',
   },
   {
-    src: '/jose-junior-gallery/05-familia-celebracao.jpeg',
+    src: '/jose-junior-gallery/05-familia-celebracao.webp',
     alt: 'José Junior com sua família em uma celebração',
   },
   {
-    src: '/jose-junior-gallery/06-corrida-entardecer.jpeg',
+    src: '/jose-junior-gallery/06-corrida-entardecer.webp',
     alt: 'José Junior correndo ao entardecer',
   },
   {
-    src: '/jose-junior-gallery/07-palestra-aristoteles.jpeg',
+    src: '/jose-junior-gallery/07-palestra-aristoteles.webp',
     alt: 'José Junior palestrando diante de uma projeção de Aristóteles',
   },
   {
-    src: '/jose-junior-gallery/08-veneza-basilica.jpeg',
+    src: '/jose-junior-gallery/08-veneza-basilica.webp',
     alt: 'José Junior diante da Basílica de São Marcos em Veneza',
   },
   {
-    src: '/jose-junior-gallery/09-palestra-palco.jpeg',
+    src: '/jose-junior-gallery/09-palestra-palco.webp',
     alt: 'José Junior caminhando durante uma palestra',
   },
   {
-    src: '/jose-junior-gallery/10-entrevista-cafe.jpeg',
+    src: '/jose-junior-gallery/10-entrevista-cafe.webp',
     alt: 'José Junior durante uma entrevista',
   },
   {
-    src: '/jose-junior-gallery/11-masterchef.jpeg',
+    src: '/jose-junior-gallery/11-masterchef.webp',
     alt: 'José Junior em visita ao estúdio MasterChef',
   },
 ]
@@ -232,7 +232,7 @@ function Hero() {
         style={{ '--reveal-delay': '120ms' }}
       >
         <img
-          src="/jose-junior-executivo-solo.png"
+          src="/jose-junior-executivo-solo.webp"
           alt="Retrato executivo de José Junior"
           fetchPriority="high"
           decoding="async"
