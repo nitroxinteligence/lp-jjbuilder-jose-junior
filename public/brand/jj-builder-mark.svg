@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Monograma JJ Builder</title>
+  <rect width="64" height="64" rx="8" fill="#F36A18"/>
+  <path d="M8 16H28V38C28 49.6 21.6 56 10 56H6V46H10C15.4 46 18 43.4 18 38V26H8V16Z" fill="#080808"/>
+  <path d="M34 8H58V35C58 48.5 50.5 56 37 56H30V46H37C44.2 46 48 42.2 48 35V18H34V8Z" fill="#080808"/>
+</svg>

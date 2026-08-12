@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Sistema de identidade visual JJ Builder</title>
+  <desc id="desc">Apresentação do monograma, assinatura horizontal, redução e versões de cor da marca JJ Builder</desc>
+  <rect width="1600" height="1000" fill="#090909"/>
+  <text x="96" y="104" fill="#F36A18" font-family="Archivo, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4">JJ BUILDER · IDENTIDADE</text>
+  <text x="96" y="164" fill="#FFFFFF" font-family="Archivo, Arial, sans-serif" font-size="28" font-weight="400">Dois J. Uma progressão. Liderança que avança.</text>
+
+  <g transform="translate(90 238) scale(5.8)" fill="#F36A18">
+    <path d="M8 16H28V38C28 49.6 21.6 56 10 56H6V46H10C15.4 46 18 43.4 18 38V26H8V16Z"/>
+    <path d="M34 8H58V35C58 48.5 50.5 56 37 56H30V46H37C44.2 46 48 42.2 48 35V18H34V8Z"/>
+  </g>
+
+  <text x="565" y="476" fill="#FFFFFF" font-family="Archivo, Arial, sans-serif" font-size="116" font-weight="700" letter-spacing="-5">JJ</text>
+  <text x="715" y="476" fill="#F36A18" font-family="Archivo, Arial, sans-serif" font-size="116" font-weight="700" letter-spacing="-5">BUILDER</text>
+  <text x="571" y="536" fill="#9A9A9A" font-family="Source Sans 3, Arial, sans-serif" font-size="24" font-weight="400" letter-spacing="1">EXECUÇÃO · LIDERANÇA · LEGADO</text>
+
+  <line x1="96" y1="674" x2="1504" y2="674" stroke="#282828"/>
+
+  <g transform="translate(96 728)">
+    <rect width="176" height="176" rx="18" fill="#151515" stroke="#303030"/>
+    <g transform="translate(32 32) scale(1.75)" fill="#F36A18">
+      <path d="M8 16H28V38C28 49.6 21.6 56 10 56H6V46H10C15.4 46 18 43.4 18 38V26H8V16Z"/>
+      <path d="M34 8H58V35C58 48.5 50.5 56 37 56H30V46H37C44.2 46 48 42.2 48 35V18H34V8Z"/>
+    </g>
+  </g>
+
+  <g transform="translate(314 728)">
+    <rect width="176" height="176" rx="18" fill="#F36A18"/>
+    <g transform="translate(32 32) scale(1.75)" fill="#090909">
+      <path d="M8 16H28V38C28 49.6 21.6 56 10 56H6V46H10C15.4 46 18 43.4 18 38V26H8V16Z"/>
+      <path d="M34 8H58V35C58 48.5 50.5 56 37 56H30V46H37C44.2 46 48 42.2 48 35V18H34V8Z"/>
+    </g>
+  </g>
+
+  <g transform="translate(532 728)">
+    <rect width="176" height="176" rx="18" fill="#F5F5F3"/>
+    <g transform="translate(32 32) scale(1.75)" fill="#090909">
+      <path d="M8 16H28V38C28 49.6 21.6 56 10 56H6V46H10C15.4 46 18 43.4 18 38V26H8V16Z"/>
+      <path d="M34 8H58V35C58 48.5 50.5 56 37 56H30V46H37C44.2 46 48 42.2 48 35V18H34V8Z"/>
+    </g>
+  </g>
+
+  <text x="790" y="770" fill="#F36A18" font-family="Archivo, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2">PRINCÍPIO</text>
+  <text x="790" y="816" fill="#FFFFFF" font-family="Archivo, Arial, sans-serif" font-size="30" font-weight="600">Experiência que eleva.</text>
+  <text x="790" y="860" fill="#A8A8A8" font-family="Source Sans 3, Arial, sans-serif" font-size="21">Sem prédio. Sem tijolo. Sem seta.</text>
+  <text x="790" y="894" fill="#A8A8A8" font-family="Source Sans 3, Arial, sans-serif" font-size="21">A própria estrutura dos J comunica avanço.</text>
+</svg>

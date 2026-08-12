@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 96" role="img" aria-labelledby="title desc">
+  <title id="title">JJ Builder</title>
+  <desc id="desc">Monograma geométrico laranja acompanhado do nome JJ Builder</desc>
+  <rect x="8" y="8" width="80" height="80" rx="10" fill="#F36A18"/>
+  <g transform="translate(8 8) scale(1.25)" fill="#080808">
+    <path d="M8 16H28V38C28 49.6 21.6 56 10 56H6V46H10C15.4 46 18 43.4 18 38V26H8V16Z"/>
+    <path d="M34 8H58V35C58 48.5 50.5 56 37 56H30V46H37C44.2 46 48 42.2 48 35V18H34V8Z"/>
+  </g>
+  <text x="108" y="62" fill="#F36A18" font-family="Archivo, Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="-1">BUILDER</text>
+</svg>
