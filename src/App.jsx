@@ -569,16 +569,12 @@ function ClosingStatement() {
 function Footer() {
   return (
     <footer>
-      <div className="footer-brand" data-reveal>
+      <div className="footer-brand">
         <a href="#topo" className="footer-logo" aria-label="JJ Builder — voltar ao início">
           <BrandLogo />
         </a>
       </div>
-      <div
-        className="footer-bottom"
-        data-reveal
-        style={{ '--reveal-delay': '60ms' }}
-      >
+      <div className="footer-bottom">
         <div className="footer-social" aria-label="Redes sociais">
           <a
             href="https://www.instagram.com/josejuniorbuilder"
