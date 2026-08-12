@@ -171,21 +171,14 @@ function useRevealOnScroll() {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return
 
-          entry.target.animate(
-            [
-              { opacity: 0, transform: 'translateY(28px)' },
-              { opacity: 1, transform: 'translateY(0)' },
-            ],
-            {
-              duration: 650,
-              easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
-              fill: 'none',
-            },
-          )
+          entry.target.classList.add('is-visible')
           observer.unobserve(entry.target)
         })
       },
-      { threshold: 0.1 },
+      {
+        threshold: 0.12,
+        rootMargin: '0px 0px -7% 0px',
+      },
     )
 
     elements.forEach((element) => observer.observe(element))
@@ -200,8 +193,8 @@ function Hero() {
   return (
     <section className="hero" id="topo">
       <div className="hero-content">
-        <BrandLogo className="hero-brand-logo" />
-        <h1>
+        <BrandLogo className="hero-brand-logo" data-reveal />
+        <h1 data-reveal style={{ '--reveal-delay': '60ms' }}>
           Onde líderes
           <br />
           comuns param,
@@ -212,11 +205,19 @@ function Hero() {
             começam.
           </em>
         </h1>
-        <p className="hero-sub">
+        <p
+          className="hero-sub"
+          data-reveal
+          style={{ '--reveal-delay': '120ms' }}
+        >
           Você chegou longe executando. O problema é que executar melhor não
           vai te levar aonde você quer chegar.
         </p>
-        <div className="hero-actions">
+        <div
+          className="hero-actions"
+          data-reveal
+          style={{ '--reveal-delay': '180ms' }}
+        >
           <a href="#portfolio" className="hero-cta">
             <span>Ver meu trabalho</span>
             <span className="hero-cta-icon" aria-hidden="true">
@@ -225,10 +226,16 @@ function Hero() {
           </a>
         </div>
       </div>
-      <div className="hero-photo">
+      <div
+        className="hero-photo"
+        data-reveal="scale"
+        style={{ '--reveal-delay': '120ms' }}
+      >
         <img
           src="/jose-junior-executivo-solo.png"
           alt="Retrato executivo de José Junior"
+          fetchPriority="high"
+          decoding="async"
         />
       </div>
     </section>
@@ -294,11 +301,13 @@ function Metrics() {
     <section className="metrics" aria-label="Números da experiência Builder">
       <MeshDriftShader />
       <div className="metrics-grid">
-        {credentials.map((credential) => (
+        {credentials.map((credential, index) => (
           <div
             className="metric"
             key={credential.label}
             aria-label={`${credential.value}${credential.suffix} ${credential.label}`}
+            data-reveal
+            style={{ '--reveal-delay': `${index * 60}ms` }}
           >
             <CountUp value={credential.value} suffix={credential.suffix} />
             <span className="metric-label">{credential.label}</span>
@@ -365,7 +374,7 @@ function PhotoReel() {
 function About() {
   return (
     <section className="bio" id="quem-sou">
-      <div className="bio-photo" data-reveal>
+      <div className="bio-photo" data-reveal="left">
         <PhotoReel />
         <div className="executive-credentials">
           <div className="executive-credentials-primary">
@@ -388,7 +397,11 @@ function About() {
           </span>
         </div>
       </div>
-      <div className="bio-content" data-reveal>
+      <div
+        className="bio-content"
+        data-reveal="right"
+        style={{ '--reveal-delay': '60ms' }}
+      >
         <div className="section-label">José Junior</div>
         <h2>
           Passei 20 anos dentro
@@ -429,12 +442,17 @@ function About() {
 function Education() {
   return (
     <section className="education" aria-labelledby="education-title">
-      <div className="education-heading" data-reveal>
+      <div className="education-heading" data-reveal="left">
         <h2 id="education-title">Formação acadêmica</h2>
       </div>
-      <div className="education-list" data-reveal>
-        {academicBackground.map((item) => (
-          <div className="education-item" key={item.label}>
+      <div className="education-list">
+        {academicBackground.map((item, index) => (
+          <div
+            className="education-item"
+            key={item.label}
+            data-reveal="right"
+            style={{ '--reveal-delay': `${index * 60}ms` }}
+          >
             <span className="education-icon" aria-hidden="true">
               <item.icon />
             </span>
@@ -446,36 +464,42 @@ function Education() {
   )
 }
 
-function PortfolioCard({ item }) {
+function PortfolioCard({ item, index }) {
   const Icon = item.icon
 
   return (
-    <article className="card" data-reveal>
-      <div className="card-heading">
-        <div className="card-meta">
-          <div className="card-icon" aria-hidden="true">
-            <Icon />
+    <div
+      className="card-reveal"
+      data-reveal
+      style={{ '--reveal-delay': `${index * 60}ms` }}
+    >
+      <article className="card">
+        <div className="card-heading">
+          <div className="card-meta">
+            <div className="card-icon" aria-hidden="true">
+              <Icon />
+            </div>
+            <div className="card-tag">{item.tag}</div>
           </div>
-          <div className="card-tag">{item.tag}</div>
+          <h3>{item.title}</h3>
         </div>
-        <h3>{item.title}</h3>
-      </div>
-      <p>{item.description}</p>
-      <ul className="card-programs" aria-label={`O que inclui ${item.title}`}>
-        {item.programs.map((program) => (
-          <li key={program.name}>
-            <span className="prog-name">
-              <LuCheck aria-hidden="true" />
-              {program.name}
-            </span>
-            {program.sub && <span className="prog-sub">{program.sub}</span>}
-          </li>
-        ))}
-      </ul>
-      <a href="#contato" className="btn-card">
-        {item.action}
-      </a>
-    </article>
+        <p>{item.description}</p>
+        <ul className="card-programs" aria-label={`O que inclui ${item.title}`}>
+          {item.programs.map((program) => (
+            <li key={program.name}>
+              <span className="prog-name">
+                <LuCheck aria-hidden="true" />
+                {program.name}
+              </span>
+              {program.sub && <span className="prog-sub">{program.sub}</span>}
+            </li>
+          ))}
+        </ul>
+        <a href="#contato" className="btn-card">
+          {item.action}
+        </a>
+      </article>
+    </div>
   )
 }
 
@@ -492,8 +516,8 @@ function Portfolio() {
         <p>Onde você está hoje define por onde começar.</p>
       </div>
       <div className="portfolio-grid">
-        {portfolioItems.map((item) => (
-          <PortfolioCard item={item} key={item.title} />
+        {portfolioItems.map((item, index) => (
+          <PortfolioCard item={item} index={index} key={item.title} />
         ))}
       </div>
     </section>
@@ -504,7 +528,7 @@ function Contact() {
   return (
     <section className="cta-section" id="contato">
       <MeshDriftShader />
-      <div className="cta-content">
+      <div className="cta-content" data-reveal="scale">
         <h2>
           Por onde você
           <br />
@@ -533,7 +557,7 @@ function Contact() {
 function ClosingStatement() {
   return (
     <section className="closing-statement">
-      <h2>
+      <h2 data-reveal="scale">
         O próximo nível não pede mais esforço.
         <br />
         <em>Pede uma liderança à altura.</em>
@@ -545,12 +569,16 @@ function ClosingStatement() {
 function Footer() {
   return (
     <footer>
-      <div className="footer-brand">
+      <div className="footer-brand" data-reveal>
         <a href="#topo" className="footer-logo" aria-label="JJ Builder — voltar ao início">
           <BrandLogo />
         </a>
       </div>
-      <div className="footer-bottom">
+      <div
+        className="footer-bottom"
+        data-reveal
+        style={{ '--reveal-delay': '60ms' }}
+      >
         <div className="footer-social" aria-label="Redes sociais">
           <a
             href="https://www.instagram.com/josejuniorbuilder"

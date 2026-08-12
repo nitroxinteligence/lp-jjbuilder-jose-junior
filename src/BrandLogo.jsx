@@ -21,9 +21,9 @@ function BrandMark({ className = '', title }) {
   )
 }
 
-export default function BrandLogo({ className = '' }) {
+export default function BrandLogo({ className = '', ...props }) {
   return (
-    <span className={`brand-logo ${className}`.trim()}>
+    <span className={`brand-logo ${className}`.trim()} {...props}>
       <span className="brand-logo-symbol" aria-hidden="true">
         <BrandMark className="brand-logo-mark" />
       </span>
