@@ -232,11 +232,31 @@ function Hero() {
         style={{ '--reveal-delay': '120ms' }}
       >
         <img
-          src="/jose-junior-executivo-solo.webp"
+          src="/jose-junior-executivo-solo-autumn.webp"
           alt="Retrato executivo de José Junior"
           fetchPriority="high"
           decoding="async"
         />
+        <div className="executive-credentials">
+          <div className="executive-credentials-primary">
+            <span className="executive-badge">
+              <LuStar aria-hidden="true" />
+              Executivo
+            </span>
+            <span className="executive-badge">
+              <LuStar aria-hidden="true" />
+              Empresário
+            </span>
+            <span className="executive-badge">
+              <LuStar aria-hidden="true" />
+              Advisor
+            </span>
+          </div>
+          <span className="executive-badge executive-badge-founder">
+            <LuStar aria-hidden="true" />
+            Fundador da Builder School of Business
+          </span>
+        </div>
       </div>
     </section>
   )
@@ -376,26 +396,6 @@ function About() {
     <section className="bio" id="quem-sou">
       <div className="bio-photo" data-reveal="left">
         <PhotoReel />
-        <div className="executive-credentials">
-          <div className="executive-credentials-primary">
-            <span className="executive-badge">
-              <LuStar aria-hidden="true" />
-              Executivo
-            </span>
-            <span className="executive-badge">
-              <LuStar aria-hidden="true" />
-              Empresário
-            </span>
-            <span className="executive-badge">
-              <LuStar aria-hidden="true" />
-              Advisor
-            </span>
-          </div>
-          <span className="executive-badge">
-            <LuStar aria-hidden="true" />
-            Fundador da Builder School of Business
-          </span>
-        </div>
       </div>
       <div
         className="bio-content"
