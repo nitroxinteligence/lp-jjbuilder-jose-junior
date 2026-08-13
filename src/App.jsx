@@ -2,10 +2,13 @@ import { useEffect, useRef, useState } from 'react'
 import { FaWhatsapp } from 'react-icons/fa6'
 import BrandLogo from './BrandLogo'
 import MeshDriftShader from './MeshDriftShader'
+import SocialCards from './SocialCards'
 import {
   LuChartNoAxesCombined,
   LuArrowDownRight,
   LuCheck,
+  LuChevronLeft,
+  LuChevronRight,
   LuFlaskConical,
   LuGlobe,
   LuGraduationCap,
@@ -63,6 +66,39 @@ const galleryImages = [
   {
     src: '/jose-junior-gallery/11-masterchef.webp',
     alt: 'José Junior em visita ao estúdio MasterChef',
+  },
+]
+
+const aboutImages = [
+  {
+    src: '/jose-junior-about/01-stanford-coo.webp',
+    alt: 'José Junior durante o programa de COO em Stanford',
+    caption: 'Programa de COO em Stanford',
+  },
+  {
+    src: '/jose-junior-about/02-lideres-culturas.webp',
+    alt: 'José Junior reunido com líderes de diferentes culturas',
+    caption: 'Trocas com líderes de diferentes culturas',
+  },
+  {
+    src: '/jose-junior-about/03-google-cultura.webp',
+    alt: 'José Junior conhecendo a sede e a cultura da Google',
+    caption: 'Que experiência conhecer o Google e sua cultura!',
+  },
+  {
+    src: '/jose-junior-gallery/01-palestra-igreja.webp',
+    alt: 'José Junior ministrando diante de uma comunidade cristã',
+    caption: 'Vivendo em obediência ao Rei',
+  },
+  {
+    src: '/jose-junior-gallery/05-familia-celebracao.webp',
+    alt: 'José Junior ao lado de sua família em uma celebração',
+    caption: 'Do topo à mesa',
+  },
+  {
+    src: '/jose-junior-gallery/07-palestra-aristoteles.webp',
+    alt: 'José Junior palestrando diante de uma projeção de Aristóteles',
+    caption: 'Carreira é vocação',
   },
 ]
 
@@ -192,6 +228,22 @@ function useRevealOnScroll() {
 function Hero() {
   return (
     <section className="hero" id="topo">
+      <picture className="hero-media" aria-hidden="true">
+        <source
+          media="(max-width: 600px)"
+          srcSet="/jose-junior-stanford-hero-mobile.webp"
+        />
+        <source
+          media="(max-width: 1024px)"
+          srcSet="/jose-junior-stanford-hero-tablet.webp"
+        />
+        <img
+          src="/jose-junior-stanford-hero-desktop.webp"
+          alt=""
+          fetchPriority="high"
+          decoding="async"
+        />
+      </picture>
       <div className="hero-content">
         <BrandLogo className="hero-brand-logo" data-reveal />
         <h1 data-reveal style={{ '--reveal-delay': '60ms' }}>
@@ -202,7 +254,7 @@ function Hero() {
           <em>
             Builders
             <br />
-            começam.
+            começam
           </em>
         </h1>
         <p
@@ -225,19 +277,11 @@ function Hero() {
             </span>
           </a>
         </div>
-      </div>
-      <div
-        className="hero-photo"
-        data-reveal="scale"
-        style={{ '--reveal-delay': '120ms' }}
-      >
-        <img
-          src="/jose-junior-executivo-solo-autumn.webp"
-          alt="Retrato executivo de José Junior"
-          fetchPriority="high"
-          decoding="async"
-        />
-        <div className="executive-credentials">
+        <div
+          className="executive-credentials"
+          data-reveal
+          style={{ '--reveal-delay': '240ms' }}
+        >
           <div className="executive-credentials-primary">
             <span className="executive-badge">
               <LuStar aria-hidden="true" />
@@ -339,53 +383,81 @@ function Metrics() {
 }
 
 function PhotoReel() {
-  const reelRef = useRef(null)
-  const [isInView, setIsInView] = useState(true)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [autoplayCycle, setAutoplayCycle] = useState(0)
+  const activeImage = aboutImages[activeIndex]
 
   useEffect(() => {
-    const element = reelRef.current
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches
 
-    if (!element || !('IntersectionObserver' in window)) return undefined
+    if (prefersReducedMotion) return undefined
 
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsInView(entry.isIntersecting),
-      { threshold: 0.12 },
+    const autoplay = window.setTimeout(() => {
+      setActiveIndex((currentIndex) =>
+        (currentIndex + 1) % aboutImages.length,
+      )
+    }, 3000)
+
+    return () => window.clearTimeout(autoplay)
+  }, [activeIndex, autoplayCycle])
+
+  const selectImage = (direction) => {
+    setActiveIndex((currentIndex) =>
+      direction === 'next'
+        ? (currentIndex + 1) % aboutImages.length
+        : (currentIndex - 1 + aboutImages.length) % aboutImages.length,
     )
-
-    observer.observe(element)
-
-    return () => observer.disconnect()
-  }, [])
+    setAutoplayCycle((cycle) => cycle + 1)
+  }
 
   return (
     <div
-      className={`photo-reel${isInView ? '' : ' is-paused'}`}
-      ref={reelRef}
+      className="photo-reel"
       role="region"
       aria-roledescription="carrossel"
-      aria-label="Momentos da trajetória de José Junior"
+      aria-label="Experiências acadêmicas e profissionais de José Junior"
     >
-      <div className="photo-reel-window" aria-live="off">
-        <div className="photo-reel-track">
-          {[false, true].map((isDuplicate) => (
-            <div
-              className="photo-reel-sequence"
-              key={isDuplicate ? 'duplicate' : 'original'}
-              aria-hidden={isDuplicate || undefined}
-            >
-              {galleryImages.map((image) => (
-                <figure className="photo-reel-frame" key={image.src}>
-                  <img
-                    src={image.src}
-                    alt={isDuplicate ? '' : image.alt}
-                    loading={isDuplicate ? 'lazy' : 'eager'}
-                    decoding="async"
-                  />
-                </figure>
-              ))}
-            </div>
+      <div className="photo-reel-window" aria-live="polite">
+        <figure className="photo-reel-frame" key={activeImage.src}>
+          <img
+            src={activeImage.src}
+            alt={activeImage.alt}
+            loading="eager"
+            decoding="async"
+          />
+          <figcaption>{activeImage.caption}</figcaption>
+        </figure>
+      </div>
+
+      <div className="photo-reel-controls" aria-label="Navegação das fotos">
+        <button
+          type="button"
+          className="fan-arrow"
+          onClick={() => selectImage('previous')}
+          aria-label="Foto anterior"
+        >
+          <LuChevronLeft aria-hidden="true" />
+        </button>
+
+        <div className="photo-reel-pagination" aria-hidden="true">
+          {aboutImages.map((image, index) => (
+            <span
+              className={index === activeIndex ? 'is-active' : undefined}
+              key={image.src}
+            />
           ))}
         </div>
+
+        <button
+          type="button"
+          className="fan-arrow"
+          onClick={() => selectImage('next')}
+          aria-label="Próxima foto"
+        >
+          <LuChevronRight aria-hidden="true" />
+        </button>
       </div>
     </div>
   )
@@ -408,7 +480,7 @@ function About() {
           <br />
           do jogo. <span className="heading-accent">Aprendi o que</span>
           <br />
-          <em>ninguém te conta.</em>
+          <em>ninguém te conta</em>
         </h2>
 
         <p>
@@ -464,6 +536,15 @@ function Education() {
   )
 }
 
+function TrajectoryCards() {
+  const cards = galleryImages.map((image) => ({
+    imgUrl: image.src,
+    alt: image.alt,
+  }))
+
+  return <SocialCards cards={cards} />
+}
+
 function PortfolioCard({ item, index }) {
   const Icon = item.icon
 
@@ -509,9 +590,12 @@ function Portfolio() {
       <div className="portfolio-header" data-reveal>
         <div className="section-label section-label-centered">Meu trabalho</div>
         <h2>
-          O que faço e como
-          <br />
-          posso <em>te ajudar</em>
+          O que faço e{' '}
+          <em>
+            como
+            <br />
+            posso te ajudar
+          </em>
         </h2>
         <p>Onde você está hoje define por onde começar.</p>
       </div>
@@ -557,11 +641,20 @@ function Contact() {
 function ClosingStatement() {
   return (
     <section className="closing-statement">
-      <h2 data-reveal="scale">
-        O próximo nível não pede mais esforço.
-        <br />
-        <em>Pede uma liderança à altura.</em>
-      </h2>
+      <img
+        className="closing-statement-image"
+        src="/jose-junior-closing-group.webp"
+        alt="José Junior reunido com líderes de diferentes culturas"
+        loading="lazy"
+        decoding="async"
+      />
+      <div className="closing-statement-content">
+        <h2 data-reveal="scale">
+          O próximo nível não pede mais esforço.
+          <br />
+          <em>Pede uma liderança à altura.</em>
+        </h2>
+      </div>
     </section>
   )
 }
@@ -618,6 +711,7 @@ export default function App() {
         <Hero />
         <Metrics />
         <About />
+        <TrajectoryCards />
         <Education />
         <Portfolio />
         <Contact />
