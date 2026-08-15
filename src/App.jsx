@@ -3,6 +3,7 @@ import { FaWhatsapp } from 'react-icons/fa6'
 import BrandLogo from './BrandLogo'
 import MeshDriftShader from './MeshDriftShader'
 import SocialCards from './SocialCards'
+import LideresPage from './LideresPage'
 import {
   LuChartNoAxesCombined,
   LuArrowDownRight,
@@ -704,6 +705,10 @@ function Footer() {
 
 export default function App() {
   useRevealOnScroll()
+
+  if (window.location.pathname.replace(/\/+$/, '') === '/lideres') {
+    return <LideresPage />
+  }
 
   return (
     <>
