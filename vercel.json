@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/lideres",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/lideres/:path*",
+      "destination": "/index.html"
+    }
+  ]
+}
