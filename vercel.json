@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/turma-bsb",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/turma-bsb/:path*",
+      "destination": "/index.html"
+    },
+    {
       "source": "/lideres",
       "destination": "/index.html"
     },

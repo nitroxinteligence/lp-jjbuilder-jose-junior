@@ -4,6 +4,7 @@ import BrandLogo from './BrandLogo'
 import MeshDriftShader from './MeshDriftShader'
 import SocialCards from './SocialCards'
 import LideresPage from './LideresPage'
+import TurmaBsbApplicationModal from './TurmaBsbApplicationModal'
 import {
   LuChartNoAxesCombined,
   LuArrowDownRight,
@@ -22,6 +23,20 @@ import {
   LuTarget,
   LuYoutube,
 } from 'react-icons/lu'
+
+const defaultHeroImages = {
+  mobile: '/jose-junior-stanford-hero-mobile.webp',
+  tablet: '/jose-junior-stanford-hero-tablet.webp',
+  desktop: '/jose-junior-stanford-hero-desktop.webp',
+}
+
+const turmaBsbHeroImages = {
+  mobile: '/jose-junior-bsb-speaker-mobile-v1.webp',
+  tablet: '/jose-junior-bsb-speaker-tablet-v1.webp',
+  laptop: '/jose-junior-bsb-speaker-laptop-v1.webp',
+  desktop: '/jose-junior-bsb-speaker-desktop-v1.webp',
+  ultrawide: '/jose-junior-bsb-speaker-ultrawide-v1.webp',
+}
 
 const galleryImages = [
   {
@@ -226,20 +241,32 @@ function useRevealOnScroll() {
   }, [])
 }
 
-function Hero() {
+function Hero({
+  ctaLabel = 'Ver meu trabalho',
+  imageSet = defaultHeroImages,
+  onCtaClick,
+  variantClassName = '',
+}) {
   return (
-    <section className="hero" id="topo">
+    <section className={`hero ${variantClassName}`.trim()} id="topo">
       <picture className="hero-media" aria-hidden="true">
-        <source
-          media="(max-width: 600px)"
-          srcSet="/jose-junior-stanford-hero-mobile.webp"
-        />
-        <source
-          media="(max-width: 1024px)"
-          srcSet="/jose-junior-stanford-hero-tablet.webp"
-        />
+        {imageSet.ultrawide && (
+          <source media="(min-width: 2400px)" srcSet={imageSet.ultrawide} />
+        )}
+        {imageSet.mobile && (
+          <source media="(max-width: 600px)" srcSet={imageSet.mobile} />
+        )}
+        {imageSet.tablet && (
+          <source media="(max-width: 1024px)" srcSet={imageSet.tablet} />
+        )}
+        {imageSet.laptop && (
+          <source media="(max-width: 1600px)" srcSet={imageSet.laptop} />
+        )}
+        {imageSet.desktop && (
+          <source media="(max-width: 2399px)" srcSet={imageSet.desktop} />
+        )}
         <img
-          src="/jose-junior-stanford-hero-desktop.webp"
+          src={imageSet.desktop}
           alt=""
           fetchPriority="high"
           decoding="async"
@@ -271,12 +298,21 @@ function Hero() {
           data-reveal
           style={{ '--reveal-delay': '180ms' }}
         >
-          <a href="#portfolio" className="hero-cta">
-            <span>Ver meu trabalho</span>
-            <span className="hero-cta-icon" aria-hidden="true">
-              <LuArrowDownRight />
-            </span>
-          </a>
+          {onCtaClick ? (
+            <button type="button" className="hero-cta hero-cta-button" onClick={onCtaClick}>
+              <span>{ctaLabel}</span>
+              <span className="hero-cta-icon" aria-hidden="true">
+                <LuArrowDownRight />
+              </span>
+            </button>
+          ) : (
+            <a href="#portfolio" className="hero-cta">
+              <span>{ctaLabel}</span>
+              <span className="hero-cta-icon" aria-hidden="true">
+                <LuArrowDownRight />
+              </span>
+            </a>
+          )}
         </div>
         <div
           className="executive-credentials"
@@ -639,6 +675,68 @@ function Contact() {
   )
 }
 
+function TurmaBsbOffer({ onApply }) {
+  return (
+    <section className="bsb-offer" id="formacao" aria-labelledby="bsb-offer-title">
+      <MeshDriftShader />
+      <div className="bsb-offer-inner">
+        <div className="bsb-offer-copy" data-reveal="left">
+          <div className="section-label">Builder School of Business</div>
+          <p className="bsb-offer-kicker">Formação de Liderança · Próxima turma</p>
+          <h2 id="bsb-offer-title">
+            Desenvolva sua liderança. Vá para o próximo nível{' '}
+            <em>sem perder sua essência.</em>
+          </h2>
+          <p className="bsb-offer-description">
+            Uma formação de liderança com mentalidade Builder para quem quer
+            crescer com clareza, consistência e propósito. Neste momento, a
+            aplicação é direta para a próxima turma da formação.
+          </p>
+
+          <div className="bsb-offer-actions">
+            <button type="button" className="bsb-offer-button" onClick={onApply}>
+              <span>Quero garantir minha vaga</span>
+              <span className="bsb-offer-button-icon" aria-hidden="true">
+                <LuArrowDownRight />
+              </span>
+            </button>
+            <a
+              className="bsb-instagram-link"
+              href="https://www.instagram.com/josejuniorbuilder"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <LuInstagram aria-hidden="true" />
+              Acompanhar @josejuniorbuilder
+            </a>
+          </div>
+        </div>
+
+        <aside
+          className="bsb-offer-card"
+          data-reveal="right"
+          style={{ '--reveal-delay': '80ms' }}
+          aria-label="Resumo da formação"
+        >
+          <span className="bsb-offer-card-index">BSB · 01</span>
+          <div>
+            <span>Formação</span>
+            <strong>Liderança</strong>
+          </div>
+          <div>
+            <span>Mentalidade</span>
+            <strong>Builder</strong>
+          </div>
+          <div>
+            <span>Próximo passo</span>
+            <strong>Aplicação</strong>
+          </div>
+        </aside>
+      </div>
+    </section>
+  )
+}
+
 function ClosingStatement() {
   return (
     <section className="closing-statement">
@@ -703,11 +801,51 @@ function Footer() {
   )
 }
 
+function TurmaBsbLanding() {
+  const [isFormOpen, setIsFormOpen] = useState(false)
+
+  useEffect(() => {
+    const previousTitle = document.title
+    document.title = 'Turma BSB | JJ Builder'
+    return () => { document.title = previousTitle }
+  }, [])
+
+  return (
+    <div className="bsb-page">
+      <main>
+        <Hero
+          ctaLabel="Quero garantir minha vaga"
+          imageSet={turmaBsbHeroImages}
+          onCtaClick={() => setIsFormOpen(true)}
+          variantClassName="bsb-hero"
+        />
+        <Metrics />
+        <About />
+        <TrajectoryCards />
+        <Education />
+        <TurmaBsbOffer onApply={() => setIsFormOpen(true)} />
+        <ClosingStatement />
+      </main>
+      <Footer />
+      <TurmaBsbApplicationModal
+        isOpen={isFormOpen}
+        onClose={() => setIsFormOpen(false)}
+      />
+    </div>
+  )
+}
+
 export default function App() {
   useRevealOnScroll()
 
-  if (window.location.pathname.replace(/\/+$/, '') === '/lideres') {
+  const currentPath = window.location.pathname.replace(/\/+$/, '').toLowerCase()
+
+  if (currentPath === '/lideres') {
     return <LideresPage />
+  }
+
+  if (currentPath === '/turma-bsb') {
+    return <TurmaBsbLanding />
   }
 
   return (
