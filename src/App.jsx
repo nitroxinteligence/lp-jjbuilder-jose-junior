@@ -31,11 +31,11 @@ const defaultHeroImages = {
 }
 
 const turmaBsbHeroImages = {
-  mobile: '/jose-junior-bsb-speaker-mobile-v1.webp',
-  tablet: '/jose-junior-bsb-speaker-tablet-v1.webp',
-  laptop: '/jose-junior-bsb-speaker-laptop-v1.webp',
-  desktop: '/jose-junior-bsb-speaker-desktop-v1.webp',
-  ultrawide: '/jose-junior-bsb-speaker-ultrawide-v1.webp',
+  mobile: '/jose-junior-bsb-speaker-approved-v2.png',
+  tablet: '/jose-junior-bsb-speaker-approved-v2.png',
+  laptop: '/jose-junior-bsb-speaker-approved-v2.png',
+  desktop: '/jose-junior-bsb-speaker-approved-v2.png',
+  ultrawide: '/jose-junior-bsb-speaker-approved-v2.png',
 }
 
 const galleryImages = [
