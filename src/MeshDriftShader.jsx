@@ -9,7 +9,7 @@ void main() {
 }
 `
 
-const shaderColors = new Float32Array([
+const defaultShaderColors = new Float32Array([
   0.003, 0.003, 0.003,
   0.208, 0.063, 0.012,
   0.443, 0.188, 0.0,
@@ -18,6 +18,17 @@ const shaderColors = new Float32Array([
   0.0, 0.0, 0.0,
   0.0, 0.0, 0.0,
   0.0, 0.0, 0.0,
+])
+
+const bsbShaderColors = new Float32Array([
+  0.031, 0.102, 0.149,
+  0.071, 0.157, 0.227,
+  0.337, 0.416, 0.478,
+  0.776, 0.631, 0.357,
+  0.071, 0.157, 0.227,
+  0.031, 0.102, 0.149,
+  0.337, 0.416, 0.478,
+  0.031, 0.102, 0.149,
 ])
 
 function createShader(gl, type, source) {
@@ -45,7 +56,7 @@ function createProgram(gl, vertexShader, fragmentShader) {
   throw new Error(message)
 }
 
-export default function MeshDriftShader() {
+export default function MeshDriftShader({ palette = 'default' }) {
   const canvasRef = useRef(null)
 
   useEffect(() => {
@@ -94,7 +105,10 @@ export default function MeshDriftShader() {
     gl.enableVertexAttribArray(positionLocation)
     gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0)
 
-    gl.uniform3fv(uniforms.colors, shaderColors)
+    gl.uniform3fv(
+      uniforms.colors,
+      palette === 'bsb' ? bsbShaderColors : defaultShaderColors,
+    )
     gl.uniform4f(uniforms.shape, 1.16, 0.34, 0.5, 0)
     gl.uniform4f(uniforms.surface, 2.4, 1.16, 0, 1)
     gl.uniform4f(uniforms.finish, 0, 0, 0, 0.09)
@@ -214,7 +228,7 @@ export default function MeshDriftShader() {
       gl.deleteShader(vertexShader)
       gl.deleteShader(fragmentShader)
     }
-  }, [])
+  }, [palette])
 
   return <canvas className="metrics-shader" ref={canvasRef} aria-hidden="true" />
 }

@@ -52,6 +52,7 @@ export default function TurmaBsbApplicationModal({ isOpen, onClose }) {
   useEffect(() => {
     if (isOpen) return
 
+    document.body.classList.remove('bsb-modal-open')
     window.clearTimeout(toastTimeoutRef.current)
     window.clearTimeout(shakeStartTimeoutRef.current)
     window.clearTimeout(shakeStopTimeoutRef.current)
@@ -64,8 +65,7 @@ export default function TurmaBsbApplicationModal({ isOpen, onClose }) {
     if (!isOpen) return undefined
 
     previousFocusRef.current = document.activeElement
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
+    document.body.classList.add('bsb-modal-open')
     window.setTimeout(() => closeButtonRef.current?.focus(), 0)
 
     const handleKeyDown = (event) => {
@@ -93,7 +93,7 @@ export default function TurmaBsbApplicationModal({ isOpen, onClose }) {
 
     document.addEventListener('keydown', handleKeyDown)
     return () => {
-      document.body.style.overflow = previousOverflow
+      document.body.classList.remove('bsb-modal-open')
       document.removeEventListener('keydown', handleKeyDown)
       previousFocusRef.current?.focus()
     }

@@ -3782,6 +3782,429 @@ footer {
   }
 }
 
+/* Turma BSB · Executive Heritage palette (sem Builder Orange) */
+.bsb-page {
+  --black: #081a26;
+  --dark: #12283a;
+  --card: #12283a;
+  --orange: #c6a15b;
+  --orange-light: #c6a15b;
+  --white: #f4f0e8;
+  --gray: rgba(244, 240, 232, 0.68);
+  --border: rgba(86, 106, 122, 0.38);
+  min-width: 320px;
+  background: #081a26;
+  color: #f4f0e8;
+}
+
+.bsb-page .hero,
+.bsb-page .metrics,
+.bsb-page .closing-statement {
+  background: #081a26;
+}
+
+.bsb-page .bsb-hero::before {
+  background: linear-gradient(
+    180deg,
+    rgba(8, 26, 38, 0.02) 0%,
+    rgba(8, 26, 38, 0.08) 46%,
+    rgba(8, 26, 38, 0.82) 100%
+  );
+}
+
+.bsb-page .hero-sub {
+  color: rgba(244, 240, 232, 0.82);
+}
+
+.bsb-page .brand-logo-symbol {
+  background: #c6a15b;
+  color: #081a26;
+}
+
+.bsb-page .brand-logo-wordmark {
+  color: #c6a15b;
+}
+
+.bsb-page .hero-cta,
+.bsb-page .bsb-offer-button {
+  border-color: rgba(244, 240, 232, 0.34);
+  background: #c6a15b;
+  box-shadow:
+    0 14px 34px rgba(8, 26, 38, 0.34),
+    inset 0 1px 0 rgba(244, 240, 232, 0.34);
+  color: #081a26;
+}
+
+.bsb-page .hero-cta::before {
+  background: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(244, 240, 232, 0.34) 48%,
+    transparent 76%
+  );
+}
+
+.bsb-page .hero-cta:hover,
+.bsb-page .bsb-offer-button:hover {
+  border-color: rgba(244, 240, 232, 0.62);
+  box-shadow:
+    0 18px 42px rgba(8, 26, 38, 0.42),
+    inset 0 1px 0 rgba(244, 240, 232, 0.42);
+}
+
+.bsb-page .hero-cta-icon,
+.bsb-page .bsb-offer-button-icon {
+  border-color: rgba(244, 240, 232, 0.18);
+  background: #12283a;
+  color: #f4f0e8;
+}
+
+.bsb-page .hero-cta:focus-visible,
+.bsb-page .bsb-offer-button:focus-visible {
+  outline-color: #f4f0e8;
+}
+
+.bsb-page .executive-credentials {
+  border-color: rgba(198, 161, 91, 0.28);
+  background: rgba(8, 26, 38, 0.84);
+  box-shadow:
+    0 18px 42px rgba(8, 26, 38, 0.38),
+    inset 0 1px 0 rgba(244, 240, 232, 0.07);
+}
+
+.bsb-page .executive-badge,
+.bsb-page .executive-badge-founder {
+  border-color: rgba(198, 161, 91, 0.52);
+  background: rgba(18, 40, 58, 0.82);
+  color: #f4f0e8;
+}
+
+.bsb-page .executive-badge-founder {
+  background: linear-gradient(
+    110deg,
+    rgba(198, 161, 91, 0.18),
+    rgba(18, 40, 58, 0.9)
+  );
+}
+
+.bsb-page .executive-badge svg {
+  fill: #c6a15b;
+  stroke: #c6a15b;
+}
+
+.bsb-page .metrics::after {
+  background: linear-gradient(
+    180deg,
+    rgba(8, 26, 38, 0.08),
+    rgba(8, 26, 38, 0.34)
+  );
+}
+
+.bsb-page .metric-number,
+.bsb-page .heading-accent,
+.bsb-page .bio-content h2 em,
+.bsb-page .social-cards-heading h2 em,
+.bsb-page .closing-statement em {
+  color: #c6a15b;
+}
+
+.bsb-page .metric-label {
+  color: #f4f0e8;
+}
+
+.bsb-page .bio,
+.bsb-page .education {
+  border-color: rgba(86, 106, 122, 0.28);
+  background: #f4f0e8;
+  color: #12283a;
+}
+
+.bsb-page .section-label {
+  border-color: rgba(198, 161, 91, 0.5);
+  background: rgba(198, 161, 91, 0.14);
+  color: #c6a15b;
+}
+
+.bsb-page .bio .section-label {
+  color: #12283a;
+}
+
+.bsb-page .bio-content p {
+  color: #566a7a;
+}
+
+.bsb-page .bio-content p strong {
+  color: #12283a;
+}
+
+.bsb-page .photo-reel-window,
+.bsb-page .photo-reel-frame {
+  border-color: rgba(86, 106, 122, 0.32);
+  background: #081a26;
+}
+
+.bsb-page .photo-reel-frame figcaption {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(8, 26, 38, 0.5) 34%,
+    rgba(8, 26, 38, 0.98) 100%
+  );
+  color: #f4f0e8;
+}
+
+.bsb-page .photo-reel-pagination span,
+.bsb-page .fan-pagination span {
+  background: rgba(86, 106, 122, 0.38);
+}
+
+.bsb-page .photo-reel-pagination span.is-active,
+.bsb-page .fan-pagination span.is-active {
+  background: #c6a15b;
+}
+
+.bsb-page .bio .fan-arrow {
+  border-color: rgba(18, 40, 58, 0.2);
+  background: rgba(18, 40, 58, 0.05);
+  box-shadow: 0 10px 24px rgba(8, 26, 38, 0.12);
+  color: #12283a;
+}
+
+.bsb-page .bio .fan-arrow:hover {
+  border-color: rgba(198, 161, 91, 0.72);
+  background: rgba(198, 161, 91, 0.14);
+  color: #081a26;
+}
+
+.bsb-page .social-cards-section {
+  border-color: rgba(86, 106, 122, 0.34);
+  background:
+    radial-gradient(circle at 50% 46%, rgba(198, 161, 91, 0.11), transparent 30%),
+    linear-gradient(180deg, #12283a, #081a26);
+}
+
+.bsb-page .fan-card {
+  border-color: rgba(86, 106, 122, 0.5);
+  background: #12283a;
+  box-shadow:
+    0 32px 74px rgba(8, 26, 38, 0.58),
+    0 0 0 1px rgba(198, 161, 91, 0.08);
+}
+
+.bsb-page .fan-card:focus-visible {
+  border-color: #c6a15b;
+  box-shadow:
+    0 0 0 3px rgba(198, 161, 91, 0.28),
+    0 32px 74px rgba(8, 26, 38, 0.58);
+}
+
+.bsb-page .social-cards-section .fan-arrow {
+  border-color: rgba(86, 106, 122, 0.54);
+  background: rgba(18, 40, 58, 0.72);
+  color: rgba(244, 240, 232, 0.78);
+}
+
+.bsb-page .social-cards-section .fan-arrow:hover {
+  border-color: rgba(198, 161, 91, 0.72);
+  background: rgba(198, 161, 91, 0.14);
+  color: #f4f0e8;
+}
+
+.bsb-page .education-item {
+  border-color: rgba(86, 106, 122, 0.3);
+  color: #12283a;
+}
+
+.bsb-page .education-icon {
+  background: rgba(198, 161, 91, 0.16);
+  color: #12283a;
+}
+
+.bsb-page .bsb-offer {
+  border-color: rgba(86, 106, 122, 0.36);
+  background: #081a26;
+}
+
+.bsb-page .bsb-offer::before {
+  background:
+    linear-gradient(90deg, rgba(8, 26, 38, 0.22), transparent 65%),
+    linear-gradient(180deg, rgba(18, 40, 58, 0.1), rgba(8, 26, 38, 0.48));
+}
+
+.bsb-page .bsb-offer-kicker,
+.bsb-page .bsb-offer h2 em,
+.bsb-page .bsb-instagram-link svg,
+.bsb-page .bsb-offer-card-index {
+  color: #c6a15b;
+}
+
+.bsb-page .bsb-offer-description,
+.bsb-page .bsb-instagram-link {
+  color: rgba(244, 240, 232, 0.78);
+}
+
+.bsb-page .bsb-instagram-link:hover {
+  color: #f4f0e8;
+}
+
+.bsb-page .bsb-offer-card {
+  border-color: rgba(198, 161, 91, 0.32);
+  background:
+    linear-gradient(145deg, rgba(86, 106, 122, 0.18), rgba(18, 40, 58, 0.08)),
+    rgba(18, 40, 58, 0.86);
+  box-shadow:
+    0 34px 80px rgba(8, 26, 38, 0.34),
+    inset 0 1px 0 rgba(244, 240, 232, 0.08);
+}
+
+.bsb-page .bsb-offer-card > div {
+  border-color: rgba(86, 106, 122, 0.42);
+}
+
+.bsb-page .bsb-offer-card > div span {
+  color: rgba(244, 240, 232, 0.58);
+}
+
+.bsb-page .bsb-offer-card > div strong {
+  color: #f4f0e8;
+}
+
+.bsb-page .closing-statement::after {
+  background:
+    linear-gradient(180deg, rgba(8, 26, 38, 0.04) 30%, rgba(8, 26, 38, 0.95) 100%),
+    linear-gradient(90deg, rgba(18, 40, 58, 0.2), transparent 34%, transparent 66%, rgba(18, 40, 58, 0.2));
+}
+
+.bsb-page footer {
+  border-color: rgba(86, 106, 122, 0.36);
+  background: #12283a;
+}
+
+.bsb-page .footer-social a {
+  border-color: rgba(86, 106, 122, 0.54);
+  color: rgba(244, 240, 232, 0.68);
+}
+
+.bsb-page .footer-social a:hover {
+  border-color: rgba(198, 161, 91, 0.66);
+  background: rgba(198, 161, 91, 0.12);
+  color: #f4f0e8;
+}
+
+.bsb-page .footer-social svg {
+  color: #c6a15b;
+}
+
+.bsb-page .footer-copy {
+  color: rgba(244, 240, 232, 0.54);
+}
+
+.bsb-application-modal {
+  --orange: #c6a15b;
+  --orange-light: #c6a15b;
+  --leaders-ink: #081a26;
+  --leaders-paper: #f4f0e8;
+  --leaders-muted: #566a7a;
+  --leaders-line: rgba(18, 40, 58, 0.16);
+  --leaders-mesh: linear-gradient(135deg, #c6a15b, #c6a15b);
+  background: rgba(8, 26, 38, 0.82);
+}
+
+.bsb-application-modal .leaders-modal {
+  border-color: rgba(198, 161, 91, 0.3);
+  background: #f4f0e8;
+}
+
+.bsb-application-modal .leaders-toast {
+  border-color: rgba(198, 161, 91, 0.42);
+  background: rgba(8, 26, 38, 0.97);
+  color: #f4f0e8;
+}
+
+.bsb-application-modal .leaders-toast svg,
+.bsb-application-modal .bsb-modal-topbar span,
+.bsb-application-modal .leaders-form-heading h2 strong {
+  color: #c6a15b;
+}
+
+.bsb-application-modal .bsb-form-row > label,
+.bsb-application-modal .leaders-form-fields legend {
+  color: #12283a;
+}
+
+.bsb-application-modal .leaders-form-fields input:not([type='radio']) {
+  border-color: rgba(86, 106, 122, 0.42);
+  background: rgba(244, 240, 232, 0.74);
+  color: #081a26;
+}
+
+.bsb-application-modal .leaders-form-fields input:not([type='radio']):focus {
+  border-color: #c6a15b;
+  background: #f4f0e8;
+  box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.16);
+}
+
+.bsb-application-modal .leaders-form-fields input[aria-invalid='true'],
+.bsb-application-modal .leaders-form-fields fieldset.is-invalid .leaders-radio {
+  border-color: #c6a15b;
+  background: rgba(198, 161, 91, 0.08);
+  box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.1);
+}
+
+.bsb-application-modal .leaders-form-fields fieldset.is-invalid legend {
+  color: #566a7a;
+}
+
+.bsb-application-modal .leaders-radio {
+  border-color: rgba(86, 106, 122, 0.4);
+  background: rgba(244, 240, 232, 0.72);
+  color: #566a7a;
+}
+
+.bsb-application-modal .leaders-radio.is-selected {
+  border-color: #c6a15b;
+  background: rgba(198, 161, 91, 0.14);
+  color: #081a26;
+  box-shadow: inset 0 0 0 1px rgba(198, 161, 91, 0.24);
+}
+
+.bsb-application-modal .leaders-radio:has(input:focus-visible),
+.bsb-application-modal button:focus-visible,
+.bsb-application-modal input:focus-visible {
+  outline-color: #c6a15b;
+}
+
+.bsb-application-modal .leaders-form-next {
+  border-color: rgba(18, 40, 58, 0.18);
+  background: #c6a15b;
+  color: #081a26;
+  box-shadow: 0 10px 25px rgba(8, 26, 38, 0.16);
+}
+
+.bsb-application-modal .leaders-form-actions {
+  background: rgba(244, 240, 232, 0.96);
+}
+
+body.bsb-modal-open {
+  overflow: hidden;
+}
+
+@media (min-width: 651px) {
+  .bsb-application-modal {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overscroll-behavior: contain;
+  }
+
+  .bsb-application-modal .leaders-modal {
+    flex: 0 0 auto;
+    max-height: none;
+    margin-block: auto;
+    overflow: visible;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

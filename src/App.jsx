@@ -397,10 +397,10 @@ function CountUp({ value, suffix }) {
   )
 }
 
-function Metrics() {
+function Metrics({ shaderPalette = 'default' }) {
   return (
     <section className="metrics" aria-label="Números da experiência Builder">
-      <MeshDriftShader />
+      <MeshDriftShader palette={shaderPalette} />
       <div className="metrics-grid">
         {credentials.map((credential, index) => (
           <div
@@ -678,7 +678,7 @@ function Contact() {
 function TurmaBsbOffer({ onApply }) {
   return (
     <section className="bsb-offer" id="formacao" aria-labelledby="bsb-offer-title">
-      <MeshDriftShader />
+      <MeshDriftShader palette="bsb" />
       <div className="bsb-offer-inner">
         <div className="bsb-offer-copy" data-reveal="left">
           <div className="section-label">Builder School of Business</div>
@@ -819,7 +819,7 @@ function TurmaBsbLanding() {
           onCtaClick={() => setIsFormOpen(true)}
           variantClassName="bsb-hero"
         />
-        <Metrics />
+        <Metrics shaderPalette="bsb" />
         <About />
         <TrajectoryCards />
         <Education />
