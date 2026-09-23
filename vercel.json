@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/links",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/links/:path*",
+      "destination": "/index.html"
+    },
+    {
       "source": "/turma-bsb",
       "destination": "/index.html"
     },

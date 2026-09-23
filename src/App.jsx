@@ -4,6 +4,7 @@ import BrandLogo from './BrandLogo'
 import MeshDriftShader from './MeshDriftShader'
 import SocialCards from './SocialCards'
 import LideresPage from './LideresPage'
+import LinksPage from './LinksPage'
 import TurmaBsbApplicationModal from './TurmaBsbApplicationModal'
 import {
   LuChartNoAxesCombined,
@@ -839,6 +840,10 @@ export default function App() {
   useRevealOnScroll()
 
   const currentPath = window.location.pathname.replace(/\/+$/, '').toLowerCase()
+
+  if (currentPath === '/links' || window.location.hostname.toLowerCase().startsWith('links.')) {
+    return <LinksPage />
+  }
 
   if (currentPath === '/lideres') {
     return <LideresPage />
