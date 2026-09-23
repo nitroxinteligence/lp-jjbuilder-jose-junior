@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import BrandLogo from './BrandLogo'
 import MeshDriftShader from './MeshDriftShader'
 import './links.css'
@@ -14,6 +14,8 @@ const links = [
   {
     title: 'Formação: Liderança Builder para Alta Performance',
     description: 'Uma jornada de liderança Builder para elevar a performance de pessoas e equipes.',
+    href: 'https://www.jjbuilder.com.br/lideres',
+    action: 'CONHECER FORMAÇÃO',
     art: 'liderança',
     artAccent: 'builder',
     theme: 'orange',
@@ -50,6 +52,12 @@ const links = [
 ]
 
 export default function LinksPage() {
+  const [openTooltip, setOpenTooltip] = useState(null)
+
+  const toggleBlockedCard = (title) => {
+    setOpenTooltip((current) => current === title ? null : title)
+  }
+
   useEffect(() => {
     document.title = 'Links | José Junior Builder'
   }, [])
@@ -81,14 +89,26 @@ export default function LinksPage() {
 
           return (
           <CardElement
-            className={`links-card links-card--${link.theme}${link.href ? '' : ' links-card--disabled'}`}
+            className={`links-card links-card--${link.theme}${link.href ? '' : ' links-card--disabled'}${openTooltip === link.title ? ' links-card--tooltip-open' : ''}`}
             key={link.title}
             {...(link.href ? {
               href: link.href,
               target: '_blank',
               rel: 'noopener noreferrer',
-              'aria-label': `${link.title} — assistir agora (abre em nova aba)`,
-            } : {})}
+              'aria-label': `${link.title} — ${(link.action || 'ASSISTIR AGORA').toLocaleLowerCase('pt-BR')} (abre em nova aba)`,
+            } : {
+              role: 'button',
+              tabIndex: 0,
+              'aria-label': `${link.title} — em breve`,
+              onClick: () => toggleBlockedCard(link.title),
+              onKeyDown: (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault()
+                  toggleBlockedCard(link.title)
+                }
+              },
+              onBlur: () => setOpenTooltip(null),
+            })}
           >
             <span className="links-card__art" aria-hidden="true">
               <span className="links-card__art-title">
@@ -102,11 +122,20 @@ export default function LinksPage() {
               <span className="links-card__description">{link.description}</span>
               {link.href && (
                 <span className="links-card__action">
-                  ASSISTIR AGORA
+                  {link.action || 'ASSISTIR AGORA'}
                   <b aria-hidden="true">→</b>
                 </span>
               )}
             </div>
+            {!link.href && (
+              <span className="links-card__tooltip" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="5" y="10" width="14" height="11" rx="2" />
+                  <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+                </svg>
+                EM BREVE
+              </span>
+            )}
           </CardElement>
           )
         })}
