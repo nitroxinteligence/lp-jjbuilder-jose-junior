@@ -112,7 +112,16 @@ export default function LinksPage() {
         })}
       </nav>
 
-      <footer className="links-page__footer">© {new Date().getFullYear()} José Junior Builder</footer>
+      <footer className="links-page__footer">
+        <a
+          className="links-page__footer-logo"
+          href="https://www.jjbuilder.com.br/"
+          aria-label="JJ Builder — página principal"
+        >
+          <BrandLogo />
+        </a>
+        <p>© 2026 José Junior Builder. Todos os direitos reservados.</p>
+      </footer>
     </main>
   )
 }
