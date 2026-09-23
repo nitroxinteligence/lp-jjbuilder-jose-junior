@@ -86,10 +86,11 @@
   margin-top: 34px;
   padding: 3px;
   overflow: hidden;
-  border: 2px solid #f36a18;
+  border: 1px solid rgba(243, 106, 24, 0.45);
   border-radius: 50%;
-  background: var(--dark);
+  background: rgba(243, 106, 24, 0.12);
   box-shadow: 0 16px 60px rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(10px);
 }
 
 .links-page__portrait img {
