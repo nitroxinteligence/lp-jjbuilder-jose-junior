@@ -78,6 +78,8 @@ export default function LinksPage() {
           <img src="/jose-junior-bio.webp" alt="José Junior" fetchPriority="high" />
         </div>
 
+        <p className="links-page__name">José Júnior</p>
+
         <p className="links-page__intro">
           <span>LIDERANÇA · PROPÓSITO · PERFORMANCE</span>
         </p>
